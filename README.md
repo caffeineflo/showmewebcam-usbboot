@@ -1,5 +1,9 @@
 # Show-me webcam: An open source, trustable and high quality webcam
 
+The goal of this project:
+
+Booting a Raspberry Pi Zero in device mode over USB as a UVC webcam, no sd card needed.
+
 [![Build/Release](https://github.com/showmewebcam/showmewebcam/workflows/Build/Release/badge.svg)](https://github.com/showmewebcam/showmewebcam/actions)
 [![License](https://img.shields.io/github/license/showmewebcam/showmewebcam?label=License)](https://github.com/showmewebcam/showmewebcam/blob/master/LICENSE)
 [![Last Release](https://img.shields.io/github/release/showmewebcam/showmewebcam.svg?label=Last%20Release)](https://github.com/showmewebcam/showmewebcam/releases/)
