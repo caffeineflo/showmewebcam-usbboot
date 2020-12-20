@@ -22,7 +22,7 @@ Show-me webcam is proudly powered by [peterbay's uvc-gadget](https://github.com/
 - Raspberry Pi Zero Camera Adapter/Ribbon (The one that comes with the camera may not fit)
 - Raspberry Pi Camera or Raspberry Pi High-Quality Camera
 - [A compatible lens](https://github.com/showmewebcam/showmewebcam/wiki/Lenses) if you use the HQ Camera sensor
-- Micro SD card (at least 64MB)
+- ~~Micro SD card (at least 64MB)~~
 - A [case or mounting plate](https://github.com/showmewebcam/showmewebcam/wiki/Cases) (optional)
 
 ## What works and what doesn't
