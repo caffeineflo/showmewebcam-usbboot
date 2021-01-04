@@ -78,11 +78,23 @@ __EOF__
 		if ! grep -qE 'quiet' "${BINARIES_DIR}/rpi-firmware/cmdline.txt"; then
 			sed '/^root=/ s/$/ quiet/' -i "${BINARIES_DIR}/rpi-firmware/cmdline.txt"
 		fi
+		
+		## USBBOOT fixes
+		# Allow initramfs, uncomment not sure why it has no space after #
+		if grep -qE '^#initramfs ' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
+			sed '/^\#initramfs/ s/\#initramfs/initramfs/' -i "${BINARIES_DIR}/rpi-firmware/config.txt"
+		fi
+
+    # Fix rootFS mount
+    sed 's/=\/dev\/mmcblk0p2/=\/dev/' -i "${BINARIES_DIR}/rpi-firmware/cmdline.txt"
+		## USBBOOT fixes end
 
 		# Add default camera.txt and add custom config if it exists
 		cp "$BR2_EXTERNAL_PICAM_PATH/package/piwebcam/camera.txt" "${BINARIES_DIR}/camera.txt"
 		if [ -f "$BR2_EXTERNAL_PICAM_PATH/camera.txt" ]; then
 			cat << __EOF__ >> "${BINARIES_DIR}/camera.txt"
+
+
 
 # User settings added during build
 
@@ -105,11 +117,16 @@ ROOTPATH_TMP="$(mktemp -d)"
 
 rm -rf "${GENIMAGE_TMP}"
 
-genimage \
-	--rootpath "${ROOTPATH_TMP}"   \
-	--tmppath "${GENIMAGE_TMP}"    \
-	--inputpath "${BINARIES_DIR}"  \
-	--outputpath "${BINARIES_DIR}" \
-	--config "${GENIMAGE_CFG}"
+## USBBOOT fixes
+# No need to build image for USBBOOT
+
+# genimage \
+# 	--rootpath "${ROOTPATH_TMP}"   \
+# 	--tmppath "${GENIMAGE_TMP}"    \
+# 	--inputpath "${BINARIES_DIR}"  \
+# 	--outputpath "${BINARIES_DIR}" \
+# 	--config "${GENIMAGE_CFG}"
+
+## USBBOOT fixes end
 
 exit $?

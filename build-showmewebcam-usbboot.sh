@@ -8,7 +8,8 @@ if [ ! -d "$BUILDROOT_DIR" ]; then
   exit 1
 fi
 
-export BOARDNAME=$1
+# Set default board to raspberrypi0. For the W you only also need bcm2708-rpi-zero-w.dtb in the boot dir.
+export BOARDNAME=${1:-raspberrypi0}
 
 case "$BOARDNAME" in
   raspberrypi0)
@@ -39,3 +40,6 @@ BR2_EXTERNAL="$(pwd)" make O="$(pwd)/output/$BOARDNAME" -C "$BUILDROOT_DIR" "${B
 
 # Build
 make -C "output/$BOARDNAME" all
+
+# Move firmware blobs to create bootable dir
+mv output/$BOARDNAME/images/rpi-firmware/* output/$BOARDNAME/images/
