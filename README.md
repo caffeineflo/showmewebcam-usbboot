@@ -2,7 +2,7 @@
 
 This project is a fork of [showmewebcam](https://github.com/showmewebcam/showmewebcam/) with one goal: boot over USB instead of using an SD card.
 
-Yes, no sd card needed. Just this tool [usbboot/rpiboot](https://github.com/raspberrypi/usbboot)
+Yes, no sd card needed. Just this tool [usbboot/rpiboot](https://github.com/raspberrypi/usbboot).
 
 ## Why this fork?
 A Raspberry Pi Zero is around $5, and a clone V1 camera $3. An USB micro cable costs less then 1$. 
