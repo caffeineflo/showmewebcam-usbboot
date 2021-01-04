@@ -17,9 +17,9 @@ Of course you can also use a v2 Camera Board or the Raspberry HQ camera board fo
 
 
 ### More fun
-A Raspberry Pi is fun
-A Raspberry Pi Zero is more fun
-A Raspberry Pi Zero with a camera as a UVC Webcam is super fun.
+A Raspberry Pi is fun.  
+A Raspberry Pi Zero is more fun.   
+A Raspberry Pi Zero with a camera as a UVC Webcam is super fun.     
 A corrupt SD card is a nightmare. Using no SD card means one nightmare less. More time for fun. ;) 
 
 ### Easier in some ways
