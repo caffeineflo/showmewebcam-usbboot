@@ -17,12 +17,12 @@ if ! grep -qE '/var' "${TARGET_DIR}/etc/fstab"; then
 	echo 'tmpfs           /var            tmpfs   rw,mode=1777,size=64m' >> "${TARGET_DIR}/etc/fstab"
 fi
 
-if ! grep -qE '/boot' "${TARGET_DIR}/etc/fstab"; then
-	echo '/dev/mmcblk0p1  /boot           vfat    ro' >> "${TARGET_DIR}/etc/fstab"
-fi
+# if ! grep -qE '/boot' "${TARGET_DIR}/etc/fstab"; then
+#  	echo '/dev/mmcblk0p1  /boot           vfat    ro' >> "${TARGET_DIR}/etc/fstab"
+# fi
 
 # Disable fsck on root
-sed -ie '/^\/dev\/root/ s/0 1/0 0/' "${TARGET_DIR}/etc/fstab"
+#sed -ie '/^\/dev\/root/ s/0 1/0 0/' "${TARGET_DIR}/etc/fstab"
 
 # Disable unused services
 ln -sf /dev/null "${TARGET_DIR}"/etc/systemd/system/sys-kernel-debug.mount
