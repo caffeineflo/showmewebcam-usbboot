@@ -1,10 +1,10 @@
-#Show-me webcam USBBOOT: An open source, trustable and high quality webcam. No SD-card needed!
+# Show-me webcam USBBOOT: An open source, trustable and high quality webcam. No SD-card needed!
 
 This project is a fork of [showmewebcam](https://github.com/showmewebcam/showmewebcam/) with one goal: boot over USB instead of using an SD card.
 
 Yes, no sd card needed. Just this tool [usbboot/rpiboot](https://github.com/raspberrypi/usbboot)
 
-##Why this fork?
+## Why this fork?
 A Raspberry Pi Zero is around $5, and a clone V1 camera $3. An USB micro cable costs less then 1$. 
 
 This means you can have a good quality and very versatile webcam for less then $10.
@@ -16,31 +16,31 @@ Booting without a SD card will save you the cost of an SD card. In case of a Ras
 Of course you can also use a v2 Camera Board or the Raspberry HQ camera board for better quality. Highly recommended.
 
 
-###More fun
+### More fun
 A Raspberry Pi is fun
 A Raspberry Pi Zero is more fun
 A Raspberry Pi Zero with a camera as a UVC Webcam is super fun.
 A corrupt SD card is a nightmare. Using no SD card means one nightmare less. More time for fun. ;) 
 
-###Easier in some ways
+### Easier in some ways
 You can use the release to boot a Raspberry Pi Zero, a Zero W, or both from the same directory. No more hassle with SD cards.
 
 Or you can boot two camera's from one directory. Just issue the command twice.
 
-###Less is more
+### Less is more
 What else to say. No SD card needed!
 
-###Give a disabled Raspberry Pi a new life
+### Give a disabled Raspberry Pi a new life
 In my house lives a Raspberry Pi Zero with a broken SD card slot. Poor lad, couldn't do much. Feeling lonesome and useless. Breaking my heart. 
 
 With this project, that desperate Raspberry Pi Zero found a new purpose in life. It's looking me in the eye daily now. Yes we're smiling to each other constantly.
 
-##When to use?
+## When to use?
 In most cases the original showmewebcam with an SD card will be what you want. A highly fast-booting transportable webcam. Just plug your Pi with a camera in any computer and it will boot as a Webcam.
 
 This fork needs a preinstalled/build rpiboot program. It also boots slower: around 30s.
 
-##Instructions:
+## Instructions:
 Showmewebcam-usbboot needs the USBBOOT/rpiboot program.
 
 
