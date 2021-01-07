@@ -44,7 +44,7 @@ This fork needs a preinstalled/build rpiboot program. It also boots slower: arou
 Showmewebcam-usbboot needs the USBBOOT/rpiboot program.
 
 
-- Download the latest release. Unpack it.
+- Download the latest [release](https://github.com/Janghou/showmewebcam-usbboot/releases). Unpack it.
 - Download and build [usbboot/rpiboot](https://github.com/raspberrypi/usbboot)
 - Connect the Pi Zero with an USB connector in the middle USB port.
 - `sudo usbboot/rpiboot -d path/showmewebcam-usbboot`
