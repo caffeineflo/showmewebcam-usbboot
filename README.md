@@ -9,7 +9,7 @@ A Raspberry Pi Zero is around $5, and a clone V1 camera $3. An USB micro cable c
 
 This means you can have a good quality and very versatile webcam for less then $10.
 
-An SD card is the most expensive item you need in the showmewebcam project. Cheaper ones then $7 are hard to find, and although I have more SD cards then Raspberry Pi's, I still feel that I'm always one short.
+An SD card is the most expensive item you need in the showmewebcam project. Cheaper ones than $7 are hard to find, and although I have more SD cards then Raspberry Pi's, I still feel that I'm always one short.
 
 Booting without a SD card will save you the cost of an SD card. In case of a Raspberry Pi Zero with a clone V1 Camera, you'll save around 50%.
 
