@@ -7,8 +7,9 @@ mkdir -p "${TARGET_DIR}"/etc/systemd/system/getty.target.wants
 # Add a console on tty1
 #ln -sf /usr/lib/systemd/system/getty@.service "${TARGET_DIR}"/etc/systemd/system/getty.target.wants/getty@tty1.service
 
-# Add a console on ttyAMA0
+# Add a console on ttyAMA0 and enable auto login
 ln -sf /usr/lib/systemd/system/serial-getty@.service "${TARGET_DIR}"/etc/systemd/system/getty.target.wants/serial-getty@ttyGS0.service
+sed '/^ExecStart=/ s/-o .-p -- ..u./--skip-login --noclear --noissue --login-options "-f root"/' -i "${TARGET_DIR}"/usr/lib/systemd/system/serial-getty@.service
 
 # Add wireless wpa for wlan0
 #ln -sf /usr/lib/systemd/system/wpa_supplicant@.service "${TARGET_DIR}"/etc/systemd/system/multi-user.target.wants/wpa_supplicant@wlan0.service
@@ -32,3 +33,14 @@ ln -sf /dev/null "${TARGET_DIR}"/etc/systemd/system/systemd-update-utmp-runlevel
 if [[ ${TARGET_DIR} != *"raspberrypi0cam"* ]]; then
   ln -sf /dev/null "${TARGET_DIR}"/etc/systemd/system/network.service
 fi
+
+# Set os-release file
+SHOWMEWEBCAM_VERSION=$(support/scripts/setlocalversion "${BR2_EXTERNAL_PICAM_PATH}")
+
+cat > "${TARGET_DIR}"/usr/lib/os-release <<EOF
+NAME="Show-me webcam"
+VERSION=${SHOWMEWEBCAM_VERSION}
+ID=showmewebcam
+VERSION_ID=${SHOWMEWEBCAM_VERSION}
+PRETTY_NAME="Show-me webcam ${SHOWMEWEBCAM_VERSION}"
+EOF

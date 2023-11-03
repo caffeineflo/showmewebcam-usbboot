@@ -1,75 +1,4 @@
-# Show-me webcam USBBOOT: An open source, trustable and high quality webcam. No SD-card needed!
-
-This project is a fork of [showmewebcam](https://github.com/showmewebcam/showmewebcam/) with one goal: boot over USB instead of using an SD card.
-
-Yes, no sd card needed. Just this tool [usbboot/rpiboot](https://github.com/raspberrypi/usbboot).
-
-## Why this fork?
-A Raspberry Pi Zero is around $5, and a clone V1 camera $3. An USB micro cable costs less then 1$. 
-
-This means you can have a good quality and very versatile webcam for less then $10.
-
-An SD card is the most expensive item you need in the showmewebcam project. Cheaper ones than $7 are hard to find, and although I have more SD cards then Raspberry Pi's, I still feel that I'm always one short.
-
-Booting without a SD card will save you the cost of an SD card. In case of a Raspberry Pi Zero with a clone V1 Camera, you'll save around 50%.
-
-Of course you can also use a v2 Camera Board or the Raspberry HQ camera board for better quality. Highly recommended.
-
-
-### More fun
-A Raspberry Pi is fun.  
-A Raspberry Pi Zero is more fun.   
-A Raspberry Pi Zero with a camera as a UVC Webcam is super fun.     
-A corrupt SD card is a nightmare. Using no SD card means one nightmare less. More time for fun. ;) 
-
-### Easier in some ways
-You can use the release to boot a Raspberry Pi Zero, a Zero W, or both from the same directory. No more hassle with SD cards.
-
-Or you can boot two camera's from one directory. Just issue the command twice.
-
-### Less is more
-What else to say. No SD card needed!
-
-### Give a disabled Raspberry Pi a new life
-In my house lives a Raspberry Pi Zero with a broken SD card slot. Poor lad, couldn't do much. Feeling lonesome and useless. Breaking my heart. 
-
-With this project, that desperate Raspberry Pi Zero found a new purpose in life. It's looking me in the eye daily now. Yes we're smiling to each other constantly.
-
-## When to use?
-In most cases the original showmewebcam with an SD card will be what you want. A highly fast-booting transportable webcam. Just plug your Pi with a camera in any computer and it will boot as a Webcam.
-
-This fork needs a preinstalled/build rpiboot program. It also boots slower: around 30s.
-
-## Instructions:
-Showmewebcam-usbboot needs the USBBOOT/rpiboot program.
-
-
-- Download the latest [release](https://github.com/Janghou/showmewebcam-usbboot/releases). Unpack it.
-- Download and build [usbboot/rpiboot](https://github.com/raspberrypi/usbboot)
-- Connect the Pi Zero with an USB connector in the middle USB port.
-- `sudo usbboot/rpiboot -d path/showmewebcam-usbboot`
-
-
-After ca 30 seconds the Webcam will be ready for use. You can check that with dmesg.
-
-```
-   sudo dmesg -w
-
-   uvcvideo: Found UVC 1.00 device Piwebcam  (1d6b:0104)
-   
-   input: Piwebcam : UVC Camera as /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1/1-1.3/1-1.3:2.0/input/input21
-   cdc_acm 1-1.3:2.2: ttyACM0: USB ACM device
-
-```
-
-Quick start (with no other camera attached):
-
-- mpv /dev/video0
-
-
-Made with love, sweat and a lot of curses.
-
-More info:
+# Show-me webcam: An open source, trustable and high quality webcam
 
 [![Build/Release](https://github.com/showmewebcam/showmewebcam/workflows/Build/Release/badge.svg)](https://github.com/showmewebcam/showmewebcam/actions)
 [![License](https://img.shields.io/github/license/showmewebcam/showmewebcam?label=License)](https://github.com/showmewebcam/showmewebcam/blob/master/LICENSE)
@@ -81,7 +10,7 @@ This firmware transforms your Raspberry Pi into a high quality webcam. It works 
 
 ### [Wiki & Documentation](https://github.com/showmewebcam/showmewebcam/wiki) | [Discord Chat](https://discord.gg/dTc4jtf3YX) | [Introduction video](https://youtu.be/nH2G16YoBT4) | [Hackaday Project](https://hackaday.io/project/174479-raspberry-pi-0-hq-usb-webcam)
 
-Show-me webcam usbboot is also proudly powered by [peterbay's uvc-gadget](https://github.com/peterbay/uvc-gadget).
+Show-me webcam is proudly powered by [peterbay's uvc-gadget](https://github.com/peterbay/uvc-gadget).
 
 ## What you need
 
@@ -89,20 +18,39 @@ Show-me webcam usbboot is also proudly powered by [peterbay's uvc-gadget](https:
 - Raspberry Pi Zero Camera Adapter/Ribbon (The one that comes with the camera may not fit)
 - Raspberry Pi Camera or Raspberry Pi High-Quality Camera
 - [A compatible lens](https://github.com/showmewebcam/showmewebcam/wiki/Lenses) if you use the HQ Camera sensor
-- ~~Micro SD card (at least 64MB)~~
+- Micro SD card (at least 64MB)
 - A [case or mounting plate](https://github.com/showmewebcam/showmewebcam/wiki/Cases) (optional)
 
 ## What works and what doesn't
 
+- The camera is known to work on Linux, Windows 10 and Mac OS
+- The camera is known to work with Zoom, Teams, Skype, Jitsi, Firefox and Chrome
 - Here's a compatibility matrix as far as we could test. Let us know if you had the chance to test other variants:
 
-| OS \ Raspberry Pi  | Zero  | Zero W  | RPI 4 |
+| Raspberry Pi \ Camera version  | v1 5MP  | v2 8MP  | High Quality 12MP |
 | ------------------------------ | ------- | ------- | ----------------- |
-| Ubuntu 20.04    | &check; |   &check;      |           |
-| Ubuntu 20.10    | &check; | &check; |            |
-| Raspberry Pi OS |  &check;       | &check;        |                   |
-| MacOS |         |         |                   |
-| Windows 10 |         |         |                   |
+| Pi Zero v1.3 (without Wifi)    | &check; | &check; | &check;           |
+| Pi Zero W (with Wifi)          | &check; | &check; | &check;           |
+| Pi 4+                          |         | &check; | &check;           |
+
+## Instructions
+
+- [Follow the Cytron tutorial](https://tutorial.cytron.io/2020/12/29/raspberry-pi-zero-usb-webcam/).
+- Smile & Enjoy!
+
+## Stable releases
+
+We release new versions of this firmware regularly at the release tab:
+https://github.com/showmewebcam/showmewebcam/releases
+
+## LED indicator
+
+After booting, the built-in LED will blink three times quickly to show you it's ready.
+
+When the camera is in use the LED will be lit. In addition,
+[GPIO 21](https://pinout.xyz/pinout/pin40_gpio21#) pin is set to `HIGH`, so an
+external LED or another payload can be triggered with this pin to indicate that
+the camera is in use.
 
 
 ## Debugging
@@ -130,9 +78,27 @@ $ screen /dev/tty.usbmodem13103 115200
 If the terminal is blank try pressing enter to see the login prompt. To exit
 the session, use `Ctrl-A \` (screen) or `Ctrl-A X` (minicom & picocom).
 
-**ATTENTION**: This interface is not really helpful if the Raspberry Pi didn't
-boot fully, as the serial-over-USB interface only comes up when uvc-gadget
-starts.
+**Warning**: This serial debug interface is automatically enabled and is controlled
+by the file called `enable-serial-debug` in the `/boot` folder. This is a potential
+security issue. For now, you should strongly consider disabling this feature by
+removing the file after you have finished customizing the webcam.
+
+
+### My camera doesn't show up on my host computer! What to do?
+
+From version 1.80, on Linux, you can see what happens by watching `dmesg`
+before you plug in the webcam:
+
+```
+$ sudo dmesg -w
+```
+
+If you only see the `ttyACM` device show up, but not the webcam, it's likely you
+have not plugged in the camera cable correctly, or the camera cable has gone bad.
+
+If you see nothing, maybe your USB cable is bad, or you have plugged in the cable
+to the wrong port.
+
 
 ## Customizing camera settings
 
@@ -145,27 +111,118 @@ Log in to the debug interface and execute:
 ```
 
 This tool will allow you to show and tweak all available camera parameters.
+Additionally it will save your settings to `/boot/camera.txt` if you choose to
+do so. This will handle remounting `/boot` automatically.
 
+### Manual
+
+#### Overriding camera settings temporarily
+
+Log in to the debug interface. Then list all tweakable parameters:
+
+```bash
+/usr/bin/v4l2-ctl -L | less
+```
+
+Then you can apply parameters on the fly, e.g.
+
+```
+/usr/bin/v4l2-ctl -c auto_exposure_bias=15
+/usr/bin/v4l2-ctl -c contrast=3
+```
+
+#### Overriding camera settings permanently
+
+Mount the SD card on your computer, edit a file called `camera.txt` in
+`/boot` and put all parameters you want overridden, e.g:
+
+```
+# Tweak the auto exposure bias
+auto_exposure_bias=15
+# Tweak the contrast
+contrast=3
+```
+
+You can edit `camera.txt` on-target by remounting `/boot` read-write:
+
+```bash
+mount -o remount,rw /boot
+```
+
+### Overriding the controls available to the host computer
+
+Since version 1.80 we try to expose as many controls as possible via the UVC
+standard, which are then translated back to the controls that are available
+on your specific camera module. Some host operating systems may be confused
+by controls that are advertised via USB, but don't turn out to work, due to
+not being available for your specific camera module.
+
+You can therefore customize the controls advertised to the computer via the
+USB device descriptor. *Warning*: This is an advanced user feature only.
+You should probably consult the [UVC controls bitmap documentation] on GitHub.
+
+You can add the parameters to `cmdline.txt` on the boot volume as follows:
+
+```
+usb_f_uvc.camera_terminal_controls=0,0,0 usb_f_uvc.processing_unit_controls=0,0
+```
+
+The above example disables all controls and should thus be safe.
+The parameters directly correspond to the `bmControls` bitfields in the descriptor.
+Please, again, read the documentation linked above.
+
+An example for enabling all the available controls for the 8 Mpixel (v2) camera for the Raspberry Pi 4B is given below:
+
+```
+usb_f_uvc.camera_terminal_controls=10,0,0 usb_f_uvc.processing_unit_controls=219,4
+```
+
+### Configure available camera resolutions and streaming format
+
+The camera advertises the available resolutions and streaming formats to the
+connected host PC. Usually the best suitable resolution is chosen. The available
+resolutions can be reduced to enforce a specific setting.
+
+By default the camera uses the *Motion JPEG* codec to stream the video signal.
+For the host PC it offers several video resolutions up to 1080p HD video to
+choose from.
+
+These settings can be overwritten by copying the file `video_formats.txt` into
+the `/boot` folder and editing it.
+
+```bash
+cp /etc/video_formats.txt /boot
+```
+
+In this file one line corresponds to one video resolution and streaming format.
+Until now, only mjpeg and uncompressed video are supported. If you want to make
+certain resolutions unavailable, comment them out by prepending a `#` to that
+line or removing them altogether.
+
+Please note that you have to reboot your piwebcam (power cycle it) for changes to take effect.
 
 ## Development & building
 
 Clone or download this repository. Then inside it:
 
-- Download the latest Buildroot stable from https://buildroot.org/download.html
-- Extract it and rename it to `buildroot`
-- Run build command (defaults to raspberrypi0 ):
-  - `./build-showmewebcam.sh raspberrypi0w` to build Raspberry Pi Zero W image.
-  - `./build-showmewebcam.sh ` to build Raspberry Pi Zero (without Wifi) image.
-  - **IMPORTANT**: If you didn't rename your Buildroot directory to `buildroot` or if you put it somewhere else you need to set the Buildroot path manually, e.g. `BUILDROOT_DIR=../buildroot ./build-showmewebcam.sh raspberrypi0`
-- The resulting directory will be in the `output/$BOARDNAME/images` folder
-- The only difference between the two builds is the device tree blob file. Both are provided in the release.
+- Clone the repository with submodules:
+  - `git clone --recurse-submodules https://github.com/showmewebcam/showmewebcam.git`
+- Run build command:
+  - `./build-showmewebcam.sh raspberrypi0w` to build Raspberry Pi Zero W (with Wifi) image.
+  - `./build-showmewebcam.sh raspberrypi0` to build Raspberry Pi Zero (without Wifi) image.
+  - `./build-showmewebcam.sh raspberrypi4` to build Raspberry Pi 4 image.
+- The resulting image `sdcard.img` will be in the `output/$BOARDNAME/images` folder
+- If you add a `camera.txt` file to the root of this repository, the contents will be automatically added to `/boot/camera.txt`
+
+**Note:** If you want to use external Buildroot directory you need to set the Buildroot path manually, e.g. `BUILDROOT_DIR=../buildroot ./build-showmewebcam.sh raspberrypi0`
 
 ## Credits
 
-- Showmewebcam developers: https://github.com/showmewebcam/showmewebcam/
-- David Hunt: https://www.davidhunt.ie/raspberry-pi-zero-with-pi-camera-as-usb-webcam/
+- David Hunt: http://www.davidhunt.ie/raspberry-pi-zero-with-pi-camera-as-usb-webcam/
 - Petr Vavřín: [uvc-gadget](https://github.com/peterbay/uvc-gadget)
 - Buildroot
 - ARM fever: https://armphibian.wordpress.com/2019/10/01/how-to-build-raspberry-pi-zero-w-buildroot-image/
 - The repository icon is attributed to the GNOME project
 
+
+[UVC controls bitmap documentation]: https://github.com/showmewebcam/showmewebcam/wiki/UVC-Controls
